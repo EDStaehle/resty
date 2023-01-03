@@ -11,7 +11,7 @@ Using the provided starter code refactor the code from the class components to f
 ### Links and Resources
 
 - testing is not required for this lab
-- [prod development](postgres://eliasstaehle_user:RXgpZrgEXdvXlVg4FgUeRqZD5NaU2bzL@dpg-ce42fk6n6mpku7k0j3rg-a.ohio-postgres.render.com/eliasstaehle)
+- [prod development](https://roaring-bonbon-c90036.netlify.app/)
 
 ### Setup
 
