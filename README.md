@@ -1,6 +1,6 @@
 # LAB - Class 26
 
-## Project:Server api-server
+## Project: React functional components
 
 ### Author: Elias Staehle
 
