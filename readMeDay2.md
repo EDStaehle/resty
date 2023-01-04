@@ -10,7 +10,7 @@ we will be receiving user input in preparation of connecting to live APIs, using
 
 ### Links and Resources
 
-- [tests]()
+- [tests](https://github.com/EDStaehle/resty/actions)
 - [prod development](https://roaring-bonbon-c90036.netlify.app/)
 
 ### Setup
@@ -25,8 +25,9 @@ using an api link input that into the input form and press submit when you do th
 
 #### Tests
 
-there are no tests at this time for this application.
+tests that the results will return the correct data.
+tests that the form will work properly.
 
 #### UML
 
-![UML](./assets/class-26-uml.png)
+![UML](./assets/class-27-uml.png)
