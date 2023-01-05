@@ -4,19 +4,21 @@ import './form.scss';
 
 const Form = (props) => {
   const { handleApiCall } = props;
-  const [method, setMethod] = useState('get');
 
+  const { method } = props;
+  const [jsonData, setJsonData] = useState();
+  const [url, setUrl] = useState();
   const updateMethod = (e) => {
     e.preventDefault();
-    let newMethod = e.target.id;
-    setMethod(newMethod);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = {
       method: method,
-      url: e.target.url.value,
+      jsonData: jsonData,
+      url: url,
     };
+
     handleApiCall(formData);
   };
 
@@ -25,10 +27,20 @@ const Form = (props) => {
       <form data-testid='form-test' onSubmit={handleSubmit}>
         <label>
           <span>URL: </span>
-          <input name='url' type='text' />
+          <input
+            data-testid='form-input'
+            name='url'
+            type='text'
+            onChange={(e) => {
+              setUrl(e.target.value);
+            }}
+          />
           <button data-testid='form-button' type='submit'>
             GO!
           </button>
+        </label>
+        <label>
+          <textarea onChange={(e) => setJsonData(e.target.value)}></textarea>
         </label>
         <label className='methods'>
           <button id='get' onClick={updateMethod}>

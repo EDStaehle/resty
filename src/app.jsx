@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './app.scss';
 
 import Header from './components/header';
@@ -11,23 +11,38 @@ import axios from 'axios';
 const App = () => {
   const [data, setData] = useState(null);
   const [requestParams, setParams] = useState({});
+  const [method, setMethod] = useState('get');
 
-  const callApi = async (requestParams) => {
-    console.log(requestParams);
-    let method = requestParams.method;
-    console.log(requestParams.url);
-    let newData = await axios[method](requestParams.url);
-    setData(newData.data);
+  const [loading, setLoading] = useState(false);
+  const apiCall = (requestParams) => {
+    console.log('these are the params', requestParams);
+    setLoading(true);
     setParams(requestParams);
   };
+  useEffect(() => {
+    const callApi = async (requestParams) => {
+      console.log(requestParams);
+
+      console.log(requestParams?.url);
+      let newData = await axios[method](requestParams.url);
+      setData(newData.data);
+      setLoading(false);
+      setMethod(requestParams.method);
+    };
+    if (Object.keys(requestParams).length > 0) {
+      callApi(requestParams);
+    }
+    console.log(requestParams);
+    console.log('an api call was used');
+  }, [requestParams]);
 
   return (
     <React.Fragment>
       <Header />
       <div>Request Method: {requestParams.method}</div>
       <div>URL: {requestParams.url}</div>
-      <Form handleApiCall={callApi} />
-      <Results data={data} />
+      <Form handleApiCall={apiCall} data={setData} method={method} />
+      <Results data={data} loading={loading} />
       <Footer />
     </React.Fragment>
   );

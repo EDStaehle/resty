@@ -2,7 +2,8 @@ import React from 'react';
 import JsonFormatter from 'react-json-formatter';
 import './results.scss';
 const Results = (props) => {
-  const { data } = props;
+  const { data, loading } = props;
+
   let newData = JSON.stringify(data);
 
   const jsonStyle = {
@@ -16,10 +17,13 @@ const Results = (props) => {
       <div className='lines'></div>
       <div className='lines'></div>
       <div className='lines'></div>
-      <pre data-testid='results-data'>
-        <JsonFormatter json={newData} tabWith={4} jsonStyle={jsonStyle} />
-      </pre>
-      {/* <pre data-testid='results-data'>{newData ? newData : ' '}</pre> */}
+      {loading ? (
+        <pre>loading...</pre>
+      ) : (
+        <pre data-testid='results-data'>
+          <JsonFormatter json={newData} tabWith={4} jsonStyle={jsonStyle} />
+        </pre>
+      )}
     </div>
   );
 };
