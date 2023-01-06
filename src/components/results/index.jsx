@@ -6,6 +6,7 @@ const Results = (props) => {
 
   let newData = JSON.stringify(data);
 
+  console.log(loading);
   const jsonStyle = {
     propertyStyle: { color: 'red' },
     stringStyle: { color: 'green' },
@@ -21,6 +22,7 @@ const Results = (props) => {
         <pre>loading...</pre>
       ) : (
         <pre data-testid='results-data'>
+          this is text {console.log(newData)}
           <JsonFormatter json={newData} tabWith={4} jsonStyle={jsonStyle} />
         </pre>
       )}

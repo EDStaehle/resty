@@ -5,13 +5,16 @@
   padding: 10px 30px;
   top: 10px;
   bottom: 20px;
-  height: 20rem;
+  height: 10rem;
   overflow-x: hidden;
   overflow-y: scroll;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10vw;
 
 }
+
+
 
 .resultsDiv::-webkit-scrollbar {
   display: none;

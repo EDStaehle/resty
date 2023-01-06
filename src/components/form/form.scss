@@ -17,7 +17,8 @@ form {
         padding: .25rem .5rem;
         background: #ccc;
 
-        &:hover, &.active {
+        &:hover,
+        &.active {
           background: #fff;
         }
       }
