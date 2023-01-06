@@ -7,6 +7,7 @@ import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
 import axios from 'axios';
+import Favorites from './components/favorites';
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -42,6 +43,7 @@ const App = () => {
       <div>Request Method: {requestParams.method}</div>
       <div>URL: {requestParams.url}</div>
       <Form handleApiCall={apiCall} data={setData} method={method} />
+      <Favorites />
       <Results data={data} loading={loading} />
       <Footer />
     </React.Fragment>
