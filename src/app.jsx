@@ -35,7 +35,7 @@ const App = () => {
     }
     console.log(requestParams);
     console.log('an api call was used');
-  }, [requestParams]);
+  }, [requestParams, method]);
 
   return (
     <React.Fragment>
